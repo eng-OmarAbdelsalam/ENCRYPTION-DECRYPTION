@@ -56,14 +56,12 @@ void encrypt(int key)
         exit(1);
     }
     //.. encrypt "plaintxt" and write it into "ciphertxt.txt" file //.. char by char
-    printf("\nThe key increments for each character: ");
     while (plaintxt[i] != '\0')
     {
         ciphertxt[i] = plaintxt[i] + key;
         fputc(ciphertxt[i], fptr);
         i++;
         key = ((key + key + 2) * 133) % 100 + 1;
-        printf("%d - ", key);
     }
     ciphertxt[i] = '\0';
     fclose(fptr);
